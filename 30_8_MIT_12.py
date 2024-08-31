@@ -1,114 +1,114 @@
-# ######################################
-# # EXAMPLE: Exceptions with summing digits in a string
-# ######################################
+######################################
+# EXAMPLE: Exceptions with summing digits in a string
+######################################
 
-# # Not using exceptions
-# def sum_digits(s):
-#     """ s is a non-empty string containing digits
-#     Returns sum of all characters that are digits """
-#     total = 0
-#     for char in s:
-#          if char in '0123456789':
-#         # if char in '0123456789': # ValueError: invalid literal for int() with base 10: 'a'
-#             val = int(char)
-#             total += val
-#     return total
+# Not using exceptions
+def sum_digits(s):
+    """ s is a non-empty string containing digits
+    Returns sum of all characters that are digits """
+    total = 0
+    for char in s:
+         if char in '0123456789':
+        # if char in '0123456789': # ValueError: invalid literal for int() with base 10: 'a'
+            val = int(char)
+            total += val
+    return total
 
-# print(sum_digits("123"))  ## 6
-# print(sum_digits("123abc"))  ## 6  if not if statement then ValueError: invalid literal for int() with base 10: 'a'
-
-
-# # Using exceptions around potentially problematic code
-# # Print that an error happened and let the program keep going
-# def sum_digits_except(s):
-#     """ s is a non-empty string containing digits
-#     Returns sum of all characters that are digits """
-#     total = 0
-#     for char in s:
-#         try:
-#             val = int(char)
-#             total += val
-#         except:
-#             print("couldn't convert character", char)
-#     return total
-
-# print(sum_digits_except("123"))
-# print(sum_digits_except("123abc"))
-
-# # 6
-# # couldn't convert character a
-# # couldn't convert character b
-# # couldn't convert character c
-# # 6
+print(sum_digits("123"))  ## 6
+print(sum_digits("123abc"))  ## 6  if not if statement then ValueError: invalid literal for int() with base 10: 'a'
 
 
+# Using exceptions around potentially problematic code
+# Print that an error happened and let the program keep going
+def sum_digits_except(s):
+    """ s is a non-empty string containing digits
+    Returns sum of all characters that are digits """
+    total = 0
+    for char in s:
+        try:
+            val = int(char)
+            total += val
+        except:
+            print("couldn't convert character", char)
+    return total
 
-# ######################################
-# # EXAMPLE: Exceptions with user input
-# ######################################
+print(sum_digits_except("123"))
+print(sum_digits_except("123abc"))
 
-# def divide_nums1():
-#     a = int(input("Tell me one number: "))
-#     b = int(input("Tell me another number: "))
-#     print(a/b)
-
-# # print(divide_nums1()) ## ZeroDivisionError: division by zero
-
-
-# def divide_nums2():
-#     try:
-#         a = int(input("Tell me one number: "))
-#         b = int(input("Tell me another number: "))
-#         print(a/b)
-#     except:
-#         print("Bug in user input")
-
-# # print(divide_nums2())
-# # Bug in user input
-# # None
-
-
-# def divide_nums3():
-#     try:
-#         a = int(input("Tell me one number: "))
-#         b = int(input("Tell me another number: "))
-#         print("a/b = ", a/b)
-#         print("a+b = ", a+b)
-#     except ValueError:
-#         print("Could not convert to a number.")
-#     except ZeroDivisionError:
-#         print("Can't divide by zero")
-#         print("a/b = infinity")
-#         print("a+b =", a+b)
-#     except:
-#         print("Something went very wrong.")
-
-# print(divide_nums3())
-
-# # Can't divide by zero
-# # a/b = infinity
-# # a+b = 6
-# # None
+# 6
+# couldn't convert character a
+# couldn't convert character b
+# couldn't convert character c
+# 6
 
 
 
+######################################
+# EXAMPLE: Exceptions with user input
+######################################
 
-# # Raising our own more informative error
-# # This is typically what you'd be asked to do in this class
-# def sum_digits_raise(s):
-#     """ s is a non-empty string containing digits
-#     Returns sum of all characters that are digits """
-#     total = 0
-#     for char in s:
-#         try:
-#             val = int(char)
-#             total += val
-#         except:
-#             raise ValueError("string contained a character")  # this will halt the execution
-#     return total
+def divide_nums1():
+    a = int(input("Tell me one number: "))
+    b = int(input("Tell me another number: "))
+    print(a/b)
+
+# print(divide_nums1()) ## ZeroDivisionError: division by zero
+
+
+def divide_nums2():
+    try:
+        a = int(input("Tell me one number: "))
+        b = int(input("Tell me another number: "))
+        print(a/b)
+    except:
+        print("Bug in user input")
+
+# print(divide_nums2())
+# Bug in user input
+# None
+
+
+def divide_nums3():
+    try:
+        a = int(input("Tell me one number: "))
+        b = int(input("Tell me another number: "))
+        print("a/b = ", a/b)
+        print("a+b = ", a+b)
+    except ValueError:
+        print("Could not convert to a number.")
+    except ZeroDivisionError:
+        print("Can't divide by zero")
+        print("a/b = infinity")
+        print("a+b =", a+b)
+    except:
+        print("Something went very wrong.")
+
+print(divide_nums3())
+
+# Can't divide by zero
+# a/b = infinity
+# a+b = 6
+# None
+
+
+
+
+# Raising our own more informative error
+# This is typically what you'd be asked to do in this class
+def sum_digits_raise(s):
+    """ s is a non-empty string containing digits
+    Returns sum of all characters that are digits """
+    total = 0
+    for char in s:
+        try:
+            val = int(char)
+            total += val
+        except:
+            raise ValueError("string contained a character")  # this will halt the execution
+    return total
             
-# print(sum_digits_raise("123"))
-# print(sum_digits_raise("123abc"))  # ValueError: string contained a character
+print(sum_digits_raise("123"))
+print(sum_digits_raise("123abc"))  # ValueError: string contained a character
 
 
 
